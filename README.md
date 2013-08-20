@@ -4,6 +4,7 @@ SocialShare
 JavaScript plugin to create sharing buttons
 
 SocialShare 0.4 javascript plugin
+-----------
 
 In our days, everyone wants to share their website content to the most used Social Networks.
 
@@ -13,6 +14,7 @@ The objective is to simplify the process of sharing your content to the Social N
 
 
 Version 0.4 supports
+-----------
 
 For now, the plugin supports five of the main Social Networks:
 
@@ -21,118 +23,109 @@ Twitter
 LinkedIn
 Google +
 Pinterest
-Download
-
-SocialShare v0.4: download.
 
 This is how it works
+-----------
 
 First we need to create the object in JavaScript:
 
-var sharer = new SocialShare();
+    var sharer = new SocialShare();
+
 Simple right?
 
-Now let’s share something to facebook:
+### Now let’s share something to facebook:
 
-<a href=”javascript:void(0)” data-type=”facebook” data-url=”jwebcoder.wordpress.com” data-Image=”http://jwebcoder.files.wordpress.com/2013/07/jwebcoder.jpg” data-Title=” JWebCoder - The blog you can't miss” data-summary=” A blog with a little bit of everything in computer programming, applications, games, hardware, etc... Try, view and comment.” onclick=”sharer.share(this);”>
-    <img scr=”facebook.png”/>
-</a>
+    <a href=”javascript:void(0)” data-type=”facebook” data-url=”jwebcoder.wordpress.com” data-Image=”http://jwebcoder.files.wordpress.com/2013/07/jwebcoder.jpg” data-Title=” JWebCoder - The blog you can't miss” data-summary=” A blog with a little bit of everything in computer programming, applications, games, hardware, etc... Try, view and comment.” onclick=”sharer.share(this);”>
+        <img scr=”facebook.png”/>
+    </a>
+    
 Here we have five attributes:
 
-data-type – the social network to share too.
-
-data-url – the link you want to share.
-
-data-image – the image you want as a thumbnail.
-
-data-title – the title of the share.
-
-data-summary – the summary of the share.
+* data-type – the social network to share too.
+* data-url – the link you want to share.
+* data-image – the image you want as a thumbnail.
+* data-title – the title of the share.
+* data-summary – the summary of the share.
 
 Same thing happens with the other Social Networks.
 
-For twitter we have:
+### For twitter we have:
 
-<a href=”javascript:void(0)” data-type=”twitter” data-text=”some text” data-url="url" onclick=”sharer.share(this);”>
-    <img scr=”smallTwitter.png”/>
-</a>
-The attributes are:
-
-data-type – the social network to share too.
-
-data-text – the text that will be tweeted.
-
-data-url – the link you want to share.
-
-For linkedIn:
-
-<a href=”javascript:void(0)” data-type=”linkedin” data-url=”url” data-title=”some title” data-summary=”some summary” onclick=”sharer.share(this);”>
-    <img scr=”smallLinkedIn.png”/>
-</a>
+    <a href=”javascript:void(0)” data-type=”twitter” data-text=”some text” data-url="url" onclick=”sharer.share(this);”>
+        <img scr=”smallTwitter.png”/>
+    </a>
 
 The attributes are:
 
-data-type – the social network to share too.
+* data-type – the social network to share too.
+* data-text – the text that will be tweeted.
+* data-url – the link you want to share.
 
-data-url – the link to share.
+### For linkedIn:
 
-data-title – the title to share.
+    <a href=”javascript:void(0)” data-type=”linkedin” data-url=”url” data-title=”some title” data-summary=”some summary” onclick=”sharer.share(this);”>
+        <img scr=”smallLinkedIn.png”/>
+    </a>
 
-data-summary – the summary of the share.
-
-For google +:
-
-<a href=”javascript:void(0)” data-type=”google” data-url=”url” onclick=”sharer.share(this);”>
-    <img scr=”smallGoogle.png”/>
-</a>
 The attributes are:
 
-data-type – the social network to share too.
+* data-type – the social network to share too.
+* data-url – the link to share.
+* data-title – the title to share.
+* data-summary – the summary of the share.
 
-data-url – the link to be shared.
+### For google +:
 
-For pinterest:
+    <a href=”javascript:void(0)” data-type=”google” data-url=”url” onclick=”sharer.share(this);”>
+        <img scr=”smallGoogle.png”/>
+    </a>
 
-<a href=”javascript:void(0)” data-type=”pinterest” data-url="url" data-image=”image link” data-summary=”some text” onclick=”sharer.share(this);”>
-    <img scr=”smallPinterest.png”/>
-</a>
 The attributes are:
 
-data-type – the social network to share too.
+* data-type – the social network to share too.
+* data-url – the link to be shared.
 
-data-url – the link to be shared.
+### For pinterest:
 
-data-image – the image you want as a thumbnail.
+    <a href=”javascript:void(0)” data-type=”pinterest” data-url="url" data-image=”image link” data-summary=”some text” onclick=”sharer.share(this);”>
+        <img scr=”smallPinterest.png”/>
+    </a>
+    
+The attributes are:
 
-data-summary – the summary of the share.
+* data-type – the social network to share too.
+* data-url – the link to be shared.
+* data-image – the image you want as a thumbnail.
+* data-summary – the summary of the share.
 
 The data-type attribute
+--------
 
 This is where we set where we want to share.
 
 For now, the possible values are:
 
-facebook
-twitter
-linkedin
-google
-pinterest
-Function list
+* facebook
+* twitter
+* linkedin
+* google
+* pinterest
+* Function list
 
 Callable functions you can use to share to the different social networks.
+--------
 
 They are not meant to be used, has they are inner functions used by the plugin, however, if you want a more direct approach, you can still use them.
 
-The functions are:
+### The functions are:
 
-new SocialShare().facebook(url,imageLink,tittle,content);
-new SocialShare().twitter(text);
-new SocialShare().linkedin(url,title,content);
-new SocialShare().google(url);
-new SocialShare().pinterest(url,image,content);
-new SocialShare().share([HTML Element]);
+* new SocialShare().facebook(url,imageLink,tittle,content);
+* new SocialShare().twitter(text);
+* new SocialShare().linkedin(url,title,content);
+* new SocialShare().google(url);
+* new SocialShare().pinterest(url,image,content);
+* new SocialShare().share([HTML Element]);
+
 If you have any other Social Networks you want me to had, or any doubt about the plugin , just say so.
 
-Leave your comments bellow or talk with me in
-facebook: https://www.facebook.com/JWebCoder
-or twitter: https://twitter.com/JWebCoder
+You can find me in [facebook](https://www.facebook.com/JWebCoder) or [Twitter](https://twitter.com/JWebCoder)
