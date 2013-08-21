@@ -18,18 +18,18 @@ Version 0.8 supports
 
 For now, the plugin supports five of the main Social Networks:
 
-Facebook
-Twitter
-Linkedin
-Google +
-Google bookmarks
-Pinterest
-Tumblr
-Delicious
-Reddit
-Tapiture
-Stumbleupon
-Newsvine
+* Facebook
+* Twitter
+* Linkedin
+* Google +
+* Google bookmarks
+* Pinterest
+* Tumblr
+* Delicious
+* Reddit
+* Tapiture
+* Stumbleupon
+* Newsvine
 
 This is how it works
 -----------
