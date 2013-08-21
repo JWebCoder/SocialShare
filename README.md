@@ -191,11 +191,12 @@ They are not meant to be used, has they are inner functions used by the plugin, 
 * new SocialShare().googleplus(url);
 * new SocialShare().googlebookmark(url,title,summary);
 * new SocialShare().pinterest(url,image,content);
-* new SocialShare()
-* new SocialShare()
-* new SocialShare()
-* new SocialShare()
-* new SocialShare()
+* new SocialShare().tumblr(url,title,summary);
+* new SocialShare().delicious(url,title,summary);
+* new SocialShare().reddit(url,title);
+* new SocialShare().tapiture(url,title,imgUrl,imgTitle,width,height);
+* new SocialShare().stumbleupon(url,title);
+* new SocialShare().newsvine(url,title);
 * new SocialShare().share([HTML Element]);
 
 If you have any other Social Networks you want me to had, or any doubt about the plugin , just say so.
