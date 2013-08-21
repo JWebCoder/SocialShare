@@ -3,7 +3,7 @@ SocialShare
 
 JavaScript plugin to create sharing buttons
 
-SocialShare 0.4 javascript plugin
+SocialShare 0.8 javascript plugin
 -----------
 
 In our days, everyone wants to share their website content to the most used Social Networks.
@@ -13,16 +13,23 @@ With this in mind, i’ve created a new JavaScript Plugin called SocialShare.
 The objective is to simplify the process of sharing your content to the Social Networks, by calling only one function in JavaScript and let it do the rest.
 
 
-Version 0.4 supports
+Version 0.8 supports
 -----------
 
 For now, the plugin supports five of the main Social Networks:
 
 Facebook
 Twitter
-LinkedIn
+Linkedin
 Google +
+Google bookmarks
 Pinterest
+Tumblr
+Delicious
+Reddit
+Tapiture
+Stumbleupon
+Newsvine
 
 This is how it works
 -----------
@@ -35,8 +42,8 @@ Simple right?
 
 ### Now let’s share something to facebook:
 
-    <a href=”javascript:void(0)” data-type=”facebook” data-url=”jwebcoder.wordpress.com” data-Image=”http://jwebcoder.files.wordpress.com/2013/07/jwebcoder.jpg” data-Title=” JWebCoder - The blog you can't miss” data-summary=” A blog with a little bit of everything in computer programming, applications, games, hardware, etc... Try, view and comment.” onclick=”sharer.share(this);”>
-        <img scr=”facebook.png”/>
+    <a href="javascript:void(0)" data-type="facebook" data-url="jwebcoder.wordpress.com" data-image="http://jwebcoder.files.wordpress.com/2013/07/jwebcoder.jpg" data-Title="JWebCoder - The blog you can't miss" data-summary="A blog with a little bit of everything in computer programming, applications, games, hardware, etc... Try, view and comment." onclick="sharer.share(this);">
+        <img scr="facebook.png"/>
     </a>
     
 Here we have five attributes:
@@ -51,8 +58,8 @@ Same thing happens with the other Social Networks.
 
 ### For twitter we have:
 
-    <a href=”javascript:void(0)” data-type=”twitter” data-text=”some text” data-url="url" onclick=”sharer.share(this);”>
-        <img scr=”smallTwitter.png”/>
+    <a href="javascript:void(0)" data-type="twitter" data-text="some text" data-url="url" onclick="sharer.share(this);">
+        <img scr="smallTwitter.png"/>
     </a>
 
 The attributes are:
@@ -63,10 +70,6 @@ The attributes are:
 
 ### For linkedIn:
 
-    <a href=”javascript:void(0)” data-type=”linkedin” data-url=”url” data-title=”some title” data-summary=”some summary” onclick=”sharer.share(this);”>
-        <img scr=”smallLinkedIn.png”/>
-    </a>
-
 The attributes are:
 
 * data-type – the social network to share too.
@@ -76,27 +79,82 @@ The attributes are:
 
 ### For google +:
 
-    <a href=”javascript:void(0)” data-type=”google” data-url=”url” onclick=”sharer.share(this);”>
-        <img scr=”smallGoogle.png”/>
-    </a>
-
 The attributes are:
 
 * data-type – the social network to share too.
 * data-url – the link to be shared.
 
+### For google bookmarks:
+
+The attributes are:
+
+* data-type – the social network to share too.
+* data-url – the link to be shared.
+* data-title – the title to share.
+* data-summary – the summary of the share.
+
 ### For pinterest:
 
-    <a href=”javascript:void(0)” data-type=”pinterest” data-url="url" data-image=”image link” data-summary=”some text” onclick=”sharer.share(this);”>
-        <img scr=”smallPinterest.png”/>
-    </a>
-    
 The attributes are:
 
 * data-type – the social network to share too.
 * data-url – the link to be shared.
 * data-image – the image you want as a thumbnail.
 * data-summary – the summary of the share.
+
+### For tumblr:
+
+The attributes are:
+
+* data-type – the social network to share too.
+* data-url – the link to be shared.
+* data-title – the title to share.
+* data-summary – the summary of the share.
+
+### For delicious:
+
+The attributes are:
+
+* data-type – the social network to share too.
+* data-url – the link to be shared.
+* data-title – the title to share.
+* data-summary – the summary of the share.
+
+### For reddit:
+
+The attributes are:
+
+* data-type – the social network to share too.
+* data-url – the link to be shared.
+* data-title – the title to share.
+
+### For tapiture:
+
+The attributes are:
+
+* data-type – the social network to share too.
+* data-url – the link to be shared.
+* data-title – the title to share.
+* data-image – the image you want as a thumbnail.
+* data-image-title – the image title you want as a thumbnail.
+* data-image-width - the thumbnail width.
+* data-image-height - the thumbnail height.
+
+### For stumbleupon:
+
+The attributes are:
+
+* data-type – the social network to share too.
+* data-url – the link to be shared.
+* data-title – the title to share.
+
+### For newsvine:
+
+The attributes are:
+
+* data-type – the social network to share too.
+* data-url – the link to be shared.
+* data-title – the title to share.
 
 The data-type attribute
 --------
@@ -108,12 +166,20 @@ For now, the possible values are:
 * facebook
 * twitter
 * linkedin
-* google
+* googleplus
+* googlebookmark
 * pinterest
-* Function list
+* tumblr
+* delicious
+* reddit
+* tapiture
+* stumbleupon
+* newsvine
+
+Function list
+--------
 
 Callable functions you can use to share to the different social networks.
---------
 
 They are not meant to be used, has they are inner functions used by the plugin, however, if you want a more direct approach, you can still use them.
 
@@ -122,8 +188,14 @@ They are not meant to be used, has they are inner functions used by the plugin, 
 * new SocialShare().facebook(url,imageLink,tittle,content);
 * new SocialShare().twitter(text);
 * new SocialShare().linkedin(url,title,content);
-* new SocialShare().google(url);
+* new SocialShare().googleplus(url);
+* new SocialShare().googlebookmark(url,title,summary);
 * new SocialShare().pinterest(url,image,content);
+* new SocialShare()
+* new SocialShare()
+* new SocialShare()
+* new SocialShare()
+* new SocialShare()
 * new SocialShare().share([HTML Element]);
 
 If you have any other Social Networks you want me to had, or any doubt about the plugin , just say so.
