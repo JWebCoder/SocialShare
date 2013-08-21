@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Socialshare by JWebCoder</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/JWebCoder/SocialShare">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/JWebCoder/SocialShare/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/JWebCoder/SocialShare/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Socialshare</h1>
+          <p>JavaScript plugin to create sharing buttons</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/JWebCoder">JWebCoder</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="socialshare" class="anchor" href="#socialshare"><span class="octicon octicon-link"></span></a>SocialShare</h1>
+
+<p>JavaScript plugin to create sharing buttons</p>
+
+<h2>
+<a name="socialshare-08-javascript-plugin" class="anchor" href="#socialshare-08-javascript-plugin"><span class="octicon octicon-link"></span></a>SocialShare 0.8 javascript plugin</h2>
+
+<p>In our days, everyone wants to share their website content to the most used Social Networks.</p>
+
+<p>With this in mind, i’ve created a new JavaScript Plugin called SocialShare.</p>
+
+<p>The objective is to simplify the process of sharing your content to the Social Networks, by calling only one function in JavaScript and let it do the rest.</p>
+
+<h2>
+<a name="version-08-supports" class="anchor" href="#version-08-supports"><span class="octicon octicon-link"></span></a>Version 0.8 supports</h2>
+
+<p>For now, the plugin supports five of the main Social Networks:</p>
+
+<ul>
+<li>Facebook</li>
+<li>Twitter</li>
+<li>Linkedin</li>
+<li>Google +</li>
+<li>Google bookmarks</li>
+<li>Pinterest</li>
+<li>Tumblr</li>
+<li>Delicious</li>
+<li>Reddit</li>
+<li>Tapiture</li>
+<li>Stumbleupon</li>
+<li>Newsvine</li>
+</ul><h2>
+<a name="this-is-how-it-works" class="anchor" href="#this-is-how-it-works"><span class="octicon octicon-link"></span></a>This is how it works</h2>
+
+<p>First we need to create the object in JavaScript:</p>
+
+<pre><code>var sharer = new SocialShare();
+</code></pre>
+
+<p>Simple right?</p>
+
+<h3>
+<a name="now-lets-share-something-to-facebook" class="anchor" href="#now-lets-share-something-to-facebook"><span class="octicon octicon-link"></span></a>Now let’s share something to facebook:</h3>
+
+<pre><code>&lt;a href="javascript:void(0)" data-type="facebook" data-url="jwebcoder.wordpress.com" data-image="http://jwebcoder.files.wordpress.com/2013/07/jwebcoder.jpg" data-Title="JWebCoder - The blog you can't miss" data-summary="A blog with a little bit of everything in computer programming, applications, games, hardware, etc... Try, view and comment." onclick="sharer.share(this);"&gt;
+    &lt;img scr="facebook.png"/&gt;
+&lt;/a&gt;
+</code></pre>
+
+<p>Here we have five attributes:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link you want to share.</li>
+<li>data-image – the image you want as a thumbnail.</li>
+<li>data-title – the title of the share.</li>
+<li>data-summary – the summary of the share.</li>
+</ul><p>Same thing happens with the other Social Networks.</p>
+
+<h3>
+<a name="for-twitter-we-have" class="anchor" href="#for-twitter-we-have"><span class="octicon octicon-link"></span></a>For twitter we have:</h3>
+
+<pre><code>&lt;a href="javascript:void(0)" data-type="twitter" data-text="some text" data-url="url" onclick="sharer.share(this);"&gt;
+    &lt;img scr="smallTwitter.png"/&gt;
+&lt;/a&gt;
+</code></pre>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-text – the text that will be tweeted.</li>
+<li>data-url – the link you want to share.</li>
+</ul><h3>
+<a name="for-linkedin" class="anchor" href="#for-linkedin"><span class="octicon octicon-link"></span></a>For linkedIn:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to share.</li>
+<li>data-title – the title to share.</li>
+<li>data-summary – the summary of the share.</li>
+</ul><h3>
+<a name="for-google-" class="anchor" href="#for-google-"><span class="octicon octicon-link"></span></a>For google +:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to be shared.</li>
+</ul><h3>
+<a name="for-google-bookmarks" class="anchor" href="#for-google-bookmarks"><span class="octicon octicon-link"></span></a>For google bookmarks:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to be shared.</li>
+<li>data-title – the title to share.</li>
+<li>data-summary – the summary of the share.</li>
+</ul><h3>
+<a name="for-pinterest" class="anchor" href="#for-pinterest"><span class="octicon octicon-link"></span></a>For pinterest:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to be shared.</li>
+<li>data-image – the image you want as a thumbnail.</li>
+<li>data-summary – the summary of the share.</li>
+</ul><h3>
+<a name="for-tumblr" class="anchor" href="#for-tumblr"><span class="octicon octicon-link"></span></a>For tumblr:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to be shared.</li>
+<li>data-title – the title to share.</li>
+<li>data-summary – the summary of the share.</li>
+</ul><h3>
+<a name="for-delicious" class="anchor" href="#for-delicious"><span class="octicon octicon-link"></span></a>For delicious:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to be shared.</li>
+<li>data-title – the title to share.</li>
+<li>data-summary – the summary of the share.</li>
+</ul><h3>
+<a name="for-reddit" class="anchor" href="#for-reddit"><span class="octicon octicon-link"></span></a>For reddit:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to be shared.</li>
+<li>data-title – the title to share.</li>
+</ul><h3>
+<a name="for-tapiture" class="anchor" href="#for-tapiture"><span class="octicon octicon-link"></span></a>For tapiture:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to be shared.</li>
+<li>data-title – the title to share.</li>
+<li>data-image – the image you want as a thumbnail.</li>
+<li>data-image-title – the image title you want as a thumbnail.</li>
+<li>data-image-width - the thumbnail width.</li>
+<li>data-image-height - the thumbnail height.</li>
+</ul><h3>
+<a name="for-stumbleupon" class="anchor" href="#for-stumbleupon"><span class="octicon octicon-link"></span></a>For stumbleupon:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to be shared.</li>
+<li>data-title – the title to share.</li>
+</ul><h3>
+<a name="for-newsvine" class="anchor" href="#for-newsvine"><span class="octicon octicon-link"></span></a>For newsvine:</h3>
+
+<p>The attributes are:</p>
+
+<ul>
+<li>data-type – the social network to share too.</li>
+<li>data-url – the link to be shared.</li>
+<li>data-title – the title to share.</li>
+</ul><h2>
+<a name="the-data-type-attribute" class="anchor" href="#the-data-type-attribute"><span class="octicon octicon-link"></span></a>The data-type attribute</h2>
+
+<p>This is where we set where we want to share.</p>
+
+<p>For now, the possible values are:</p>
+
+<ul>
+<li>facebook</li>
+<li>twitter</li>
+<li>linkedin</li>
+<li>googleplus</li>
+<li>googlebookmark</li>
+<li>pinterest</li>
+<li>tumblr</li>
+<li>delicious</li>
+<li>reddit</li>
+<li>tapiture</li>
+<li>stumbleupon</li>
+<li>newsvine</li>
+</ul><h2>
+<a name="function-list" class="anchor" href="#function-list"><span class="octicon octicon-link"></span></a>Function list</h2>
+
+<p>Callable functions you can use to share to the different social networks.</p>
+
+<p>They are not meant to be used, has they are inner functions used by the plugin, however, if you want a more direct approach, you can still use them.</p>
+
+<h3>
+<a name="the-functions-are" class="anchor" href="#the-functions-are"><span class="octicon octicon-link"></span></a>The functions are:</h3>
+
+<ul>
+<li>new SocialShare().facebook(url,imageLink,tittle,content);</li>
+<li>new SocialShare().twitter(text);</li>
+<li>new SocialShare().linkedin(url,title,content);</li>
+<li>new SocialShare().googleplus(url);</li>
+<li>new SocialShare().googlebookmark(url,title,summary);</li>
+<li>new SocialShare().pinterest(url,image,content);</li>
+<li>new SocialShare().tumblr(url,title,summary);</li>
+<li>new SocialShare().delicious(url,title,summary);</li>
+<li>new SocialShare().reddit(url,title);</li>
+<li>new SocialShare().tapiture(url,title,imgUrl,imgTitle,width,height);</li>
+<li>new SocialShare().stumbleupon(url,title);</li>
+<li>new SocialShare().newsvine(url,title);</li>
+<li>new SocialShare().share([HTML Element]);</li>
+</ul><p>If you have any other Social Networks you want me to had, or any doubt about the plugin , just say so.</p>
+
+<p>You can find me in <a href="https://www.facebook.com/JWebCoder">facebook</a> or <a href="https://twitter.com/JWebCoder">Twitter</a></p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
