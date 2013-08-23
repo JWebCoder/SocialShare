@@ -48,11 +48,11 @@ Simple right?
     
 Here we have five attributes:
 
-* data-type – the social network to share too.
-* data-url – the link you want to share.
-* data-image – the image you want as a thumbnail.
-* data-title – the title of the share.
-* data-summary – the summary of the share.
+* data-type - the social network to share too.
+* data-url - the link you want to share.
+* data-image - the image you want as a thumbnail.
+* data-title - the title of the share.
+* data-summary - the summary of the share.
 
 Same thing happens with the other Social Networks.
 
@@ -64,79 +64,79 @@ Same thing happens with the other Social Networks.
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-text – the text that will be tweeted.
-* data-url – the link you want to share.
+* data-type - the social network to share too.
+* data-text - the text that will be tweeted.
+* data-url - the link you want to share.
 
 ### For linkedIn:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to share.
-* data-title – the title to share.
-* data-summary – the summary of the share.
+* data-type - the social network to share too.
+* data-url - the link to share.
+* data-title - the title to share.
+* data-summary - the summary of the share.
 
 ### For google +:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to be shared.
+* data-type - the social network to share too.
+* data-url - the link to be shared.
 
 ### For google bookmarks:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to be shared.
-* data-title – the title to share.
-* data-summary – the summary of the share.
+* data-type - the social network to share too.
+* data-url - the link to be shared.
+* data-title - the title to share.
+* data-summary - the summary of the share.
 
 ### For pinterest:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to be shared.
-* data-image – the image you want as a thumbnail.
-* data-summary – the summary of the share.
+* data-type - the social network to share too.
+* data-url - the link to be shared.
+* data-image - the image you want as a thumbnail.
+* data-summary - the summary of the share.
 
 ### For tumblr:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to be shared.
-* data-title – the title to share.
-* data-summary – the summary of the share.
+* data-type - the social network to share too.
+* data-url - the link to be shared.
+* data-title - the title to share.
+* data-summary - the summary of the share.
 
 ### For delicious:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to be shared.
-* data-title – the title to share.
-* data-summary – the summary of the share.
+* data-type - the social network to share too.
+* data-url - the link to be shared.
+* data-title - the title to share.
+* data-summary - the summary of the share.
 
 ### For reddit:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to be shared.
-* data-title – the title to share.
+* data-type - the social network to share too.
+* data-url - the link to be shared.
+* data-title - the title to share.
 
 ### For tapiture:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to be shared.
-* data-title – the title to share.
-* data-image – the image you want as a thumbnail.
-* data-image-title – the image title you want as a thumbnail.
+* data-type - the social network to share too.
+* data-url - the link to be shared.
+* data-title - the title to share.
+* data-image - the image you want as a thumbnail.
+* data-image-title - the image title you want as a thumbnail.
 * data-image-width - the thumbnail width.
 * data-image-height - the thumbnail height.
 
@@ -144,17 +144,17 @@ The attributes are:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to be shared.
-* data-title – the title to share.
+* data-type - the social network to share too.
+* data-url - the link to be shared.
+* data-title - the title to share.
 
 ### For newsvine:
 
 The attributes are:
 
-* data-type – the social network to share too.
-* data-url – the link to be shared.
-* data-title – the title to share.
+* data-type - the social network to share too.
+* data-url - the link to be shared.
+* data-title - the title to share.
 
 The data-type attribute
 --------
@@ -175,6 +175,35 @@ For now, the possible values are:
 * tapiture
 * stumbleupon
 * newsvine
+
+Themes
+--------
+
+The first theme isn't yet completed, and will be available next week.
+
+In order to use the themes, we need to pass some data when we create the object.
+
+	var sharer = new SocialShare({
+		"imageManager":"shareButton",
+		"themeUrl":"SSThemes",
+		"theme":"default"
+	});
+
+This will enable the theme manager, and create the mouse over effect on the chosen share links.
+The values:
+
+* imageManager - a class used in all the share links.
+* themeUrl - the relative path to the theme folder (default value : SSThemes).
+* theme - the default theme (default value : default).
+
+Now all we need is to add the class we set in the constructor in the share link. Using twitter has example, we have this:
+
+	<a href="javascript:void(0)" data-type="twitter" <strong>class="shareButton"</strong> data-text="some text" data-url="url" onclick="sharer.share(this);>
+		<img />
+	</a>
+
+
+As you can see, there's no need to put in the image source, that is because we are using a theme now.
 
 Function list
 --------
