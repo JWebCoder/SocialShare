@@ -10,7 +10,11 @@
     <script src="javascripts/respond.js"></script>
     <script src="javascripts/SocialShare.js"></script>
     <script type="text/javascript">
-      var sharer = new SocialShare();
+		var sharer = new SocialShare({
+			"imageManager":"shareButton",
+			"themeUrl":"javascripts/SSThemes",
+			"theme":"default"
+		});
     </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -251,11 +255,11 @@
 <a name="themes" class="anchor" href="#themes"><span class="octicon octicon-link"></span></a>Themes</h2>
 
 <p>In order to use the themes, we need to pass some data when we create the object.</p>
-<pre><code>var sharer = new SocialShare({<br>
-	"imageManager":"shareButton",<br>
-	"themeUrl":"SSThemes",<br>
-	"theme":"default"<br>
-	});
+<pre><code>var sharer = new SocialShare({
+	"imageManager":"shareButton",
+	"themeUrl":"SSThemes",
+	"theme":"default"
+});
 </code></pre>
 
 <p>This will enable the theme manager, and create the mouse over effect on the chosen share links.</p>
