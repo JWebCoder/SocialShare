@@ -16,7 +16,7 @@ The objective is to simplify the process of sharing your content to the Social N
 Version 0.9 supports
 -----------
 
-For now, the plugin supports five of the main Social Networks:
+For now, the plugin supports twelve Social Networks:
 
 * Facebook
 * Twitter
@@ -30,6 +30,8 @@ For now, the plugin supports five of the main Social Networks:
 * Tapiture
 * Stumbleupon
 * Newsvine
+
+And the new feature Themes
 
 This is how it works
 -----------
@@ -198,7 +200,7 @@ The values:
 
 Now all we need is to add the class we set in the constructor in the share link. Using twitter has example, we have this:
 
-	<a href="javascript:void(0)" data-type="twitter" **class="shareButton"** data-text="some text" data-url="url" onclick="sharer.share(this);>
+	<a href="javascript:void(0)" data-type="twitter" class="shareButton" data-text="some text" data-url="url" onclick="sharer.share(this);>
 		<img />
 	</a>
 
