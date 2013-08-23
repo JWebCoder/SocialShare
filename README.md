@@ -13,7 +13,7 @@ With this in mind, i’ve created a new JavaScript Plugin called SocialShare.
 The objective is to simplify the process of sharing your content to the Social Networks, by calling only one function in JavaScript and let it do the rest.
 
 
-Version 0.8 supports
+Version 0.9 supports
 -----------
 
 For now, the plugin supports five of the main Social Networks:
