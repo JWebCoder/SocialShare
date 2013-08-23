@@ -198,7 +198,7 @@ The values:
 
 Now all we need is to add the class we set in the constructor in the share link. Using twitter has example, we have this:
 
-	<a href="javascript:void(0)" data-type="twitter" <strong>class="shareButton"</strong> data-text="some text" data-url="url" onclick="sharer.share(this);>
+	<a href="javascript:void(0)" data-type="twitter" **class="shareButton"** data-text="some text" data-url="url" onclick="sharer.share(this);>
 		<img />
 	</a>
 
