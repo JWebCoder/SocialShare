@@ -3,7 +3,7 @@ SocialShare
 
 JavaScript plugin to create sharing buttons
 
-SocialShare 0.8 javascript plugin
+SocialShare 0.9 javascript plugin
 -----------
 
 In our days, everyone wants to share their website content to the most used Social Networks.
