@@ -29,6 +29,9 @@ var SocialShare = function(options) {
         if (options.theme) {
             this.theme = options.theme;
         }
+		if (options.invertTheme) {
+            this.invertTheme = options.invertTheme;
+        }
         this.imageClass = options.imageManager;
 
         var objectSSControl = this;
@@ -55,7 +58,8 @@ SocialShare.prototype = {
     imageClass: null,
     themeUrl: null,
     theme: "default",
-
+	invertTheme:null,
+	
     facebook: function(url, image, title, summary) {
         this.link = "https://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + url + "&p[images][0]=" + image + "&p[title]=" + title + "&p[summary]=" + summary;
         this.type = "facebook";
@@ -214,13 +218,24 @@ SocialShare.prototype = {
             var parent = this;
             for (i in elems) {
                 if ((elems[i].className + "").indexOf(this.imageClass) > -1) {
-                    elems[i].getElementsByTagName('img')[0].src = this.themeUrl + "/" + this.theme + "/" + elems[i].getAttribute("data-type") + ".png";
-                    elems[i].onmouseover = function() {
-                        this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + "over.png";
-                    };
-                    elems[i].onmouseout = function() {
-                        this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + ".png";
-                    };
+                    var image = null;
+					if(this.invertTheme != null){
+						elems[i].getElementsByTagName('img')[0].src = this.themeUrl + "/" + this.theme + "/" + elems[i].getAttribute("data-type") + "over.png";
+						elems[i].onmouseover = function() {
+							this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + ".png";
+						};
+						elems[i].onmouseout = function() {
+							this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + "over.png";
+						};
+					}else{
+						elems[i].getElementsByTagName('img')[0].src = this.themeUrl + "/" + this.theme + "/" + elems[i].getAttribute("data-type") + ".png";
+						elems[i].onmouseover = function() {
+							this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + "over.png";
+						};
+						elems[i].onmouseout = function() {
+							this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + ".png";
+						};
+					}
                 }
             }
         }
