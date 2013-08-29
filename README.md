@@ -181,8 +181,6 @@ For now, the possible values are:
 Themes
 --------
 
-The first theme isn't yet completed, and will be available next week.
-
 In order to use the themes, we need to pass some data when we create the object.
 
 	var sharer = new SocialShare({
