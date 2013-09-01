@@ -35,19 +35,26 @@ var SocialShare = function(options) {
         this.imageClass = options.imageManager;
 
         var objectSSControl = this;
-        if (window.attachEvent) {
-            window.attachEvent('onload', function() { objectSSControl.imagesManager(); });
-        } else {
-            if (window.onload) {
-                var curronload = window.onload;
-                var newonload = function() {
-                    curronload();
-                    objectSSControl.imagesManager();
-                };
-                window.onload = newonload;
-            } else {
-                window.onload = function() { objectSSControl.imagesManager(); };
-            }
+        if(document.addEventListener){
+        	document.addEventListener('DOMContentLoaded', function() { objectSSControl.imagesManager(); });
+        }else{
+        	if(document.onreadystatechange){
+        		var curronready = document.onreadystatechange;
+        		var newonready = function(){
+        			curronready();
+        			if(document.readyState == "complete"){
+        				objectSSControl.imagesManager();
+        			}
+        		};
+        		document.onreadystatechange = newonready;
+        	}
+        	else{
+        		document.onreadystatechange = function(){
+        			if(document.readyState == "complete"){
+        				objectSSControl.imagesManager();
+        			}
+        		};
+        	}
         }
     }
     return this;
