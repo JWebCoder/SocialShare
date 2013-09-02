@@ -225,12 +225,12 @@ SocialShare.prototype = {
         } else {
             var parent = this;
 			var path = this.themeUrl + "/" + this.theme + "/";
-			var this.images = new Array();
+			this.images = new Array();
             for (i in elems) {
                 if ((elems[i].className + "").indexOf(this.imageClass) > -1) {
 					if(this.invertTheme != null){
 						this.images.push(new Image());
-						this.images[images.length - 1].src = path + this.getAttribute("data-type") + ".png";
+						this.images[this.images.length - 1].src = path + elems[i].getAttribute("data-type") + ".png";
 						elems[i].getElementsByTagName('img')[0].src = path + elems[i].getAttribute("data-type") + "over.png";
 						elems[i].onmouseover = function() {
 							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + ".png";
@@ -240,7 +240,7 @@ SocialShare.prototype = {
 						};
 					}else{
 						this.images.push(new Image());
-						this.images[images.length - 1].src = path + this.getAttribute("data-type") + "over.png";
+						this.images[this.images.length - 1].src = path + elems[i].getAttribute("data-type") + "over.png";
 						elems[i].getElementsByTagName('img')[0].src = path + elems[i].getAttribute("data-type") + ".png";
 						elems[i].onmouseover = function() {
 							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + "over.png";
