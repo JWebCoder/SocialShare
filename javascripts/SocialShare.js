@@ -225,7 +225,7 @@ SocialShare.prototype = {
         } else {
             var parent = this;
 			var path = this.themeUrl + "/" + this.theme + "/";
-			var image = null;
+			var this.images = new Array();
             for (i in elems) {
                 if ((elems[i].className + "").indexOf(this.imageClass) > -1) {
 					if(this.invertTheme != null){
