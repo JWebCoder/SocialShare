@@ -66,6 +66,7 @@ SocialShare.prototype = {
     themeUrl: null,
     theme: "default",
 	invertTheme:null,
+	images: null,
 	
     facebook: function(url, image, title, summary) {
         this.link = "https://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + url + "&p[images][0]=" + image + "&p[title]=" + title + "&p[summary]=" + summary;
@@ -223,24 +224,29 @@ SocialShare.prototype = {
             }
         } else {
             var parent = this;
+			var path = this.themeUrl + "/" + this.theme + "/";
+			var image = null;
             for (i in elems) {
                 if ((elems[i].className + "").indexOf(this.imageClass) > -1) {
-                    var image = null;
 					if(this.invertTheme != null){
-						elems[i].getElementsByTagName('img')[0].src = this.themeUrl + "/" + this.theme + "/" + elems[i].getAttribute("data-type") + "over.png";
+						this.images.push(new Image());
+						this.images[images.length - 1].src = path + this.getAttribute("data-type") + ".png";
+						elems[i].getElementsByTagName('img')[0].src = path + elems[i].getAttribute("data-type") + "over.png";
 						elems[i].onmouseover = function() {
-							this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + ".png";
+							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + ".png";
 						};
 						elems[i].onmouseout = function() {
-							this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + "over.png";
+							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + "over.png";
 						};
 					}else{
-						elems[i].getElementsByTagName('img')[0].src = this.themeUrl + "/" + this.theme + "/" + elems[i].getAttribute("data-type") + ".png";
+						this.images.push(new Image());
+						this.images[images.length - 1].src = path + this.getAttribute("data-type") + "over.png";
+						elems[i].getElementsByTagName('img')[0].src = path + elems[i].getAttribute("data-type") + ".png";
 						elems[i].onmouseover = function() {
-							this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + "over.png";
+							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + "over.png";
 						};
 						elems[i].onmouseout = function() {
-							this.getElementsByTagName('img')[0].src = parent.themeUrl + "/" + parent.theme + "/" + this.getAttribute("data-type") + ".png";
+							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + ".png";
 						};
 					}
                 }
