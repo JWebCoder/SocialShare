@@ -22,41 +22,43 @@
 
 
 var SocialShare = function(options) {
-    if (options.imageManager) {
-        if (options.themeUrl) {
-            this.themeUrl = options.themeUrl;
-        }
-        if (options.theme) {
-            this.theme = options.theme;
-        }
-		if (options.invertTheme) {
-            this.invertTheme = options.invertTheme;
-        }
-        this.imageClass = options.imageManager;
+	if(options){
+		if (options.imageManager) {
+			if (options.themeUrl) {
+				this.themeUrl = options.themeUrl;
+			}
+			if (options.theme) {
+				this.theme = options.theme;
+			}
+			if (options.invertTheme) {
+				this.invertTheme = options.invertTheme;
+			}
+			this.imageClass = options.imageManager;
 
-        var objectSSControl = this;
-        if(document.addEventListener){
-        	document.addEventListener('DOMContentLoaded', function() { objectSSControl.imagesManager(); });
-        }else{
-        	if(document.onreadystatechange){
-        		var curronready = document.onreadystatechange;
-        		var newonready = function(){
-        			curronready();
-        			if(document.readyState == "complete"){
-        				objectSSControl.imagesManager();
-        			}
-        		};
-        		document.onreadystatechange = newonready;
-        	}
-        	else{
-        		document.onreadystatechange = function(){
-        			if(document.readyState == "complete"){
-        				objectSSControl.imagesManager();
-        			}
-        		};
-        	}
-        }
-    }
+			var objectSSControl = this;
+			if(document.addEventListener){
+				document.addEventListener('DOMContentLoaded', function() { objectSSControl.imagesManager(); });
+			}else{
+				if(document.onreadystatechange){
+					var curronready = document.onreadystatechange;
+					var newonready = function(){
+						curronready();
+						if(document.readyState == "complete"){
+							objectSSControl.imagesManager();
+						}
+					};
+					document.onreadystatechange = newonready;
+				}
+				else{
+					document.onreadystatechange = function(){
+						if(document.readyState == "complete"){
+							objectSSControl.imagesManager();
+						}
+					};
+				}
+			}
+		}
+	}
     return this;
 };
 SocialShare.prototype = {
