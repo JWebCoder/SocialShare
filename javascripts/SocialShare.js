@@ -102,7 +102,7 @@ SocialShare.prototype = {
         this.publish();
     },
     tumblr: function(url, title, summary) {
-        this.link = "http://www.tumblr.com/share/link?url=" + url + "&name=" + title + "&description=" + summary;
+        this.link = "http://www.tumblr.com/share/link?url=" + encodeURIComponent(url) + "&name=" + title + "&description=" + summary;
         this.type = "tumblr";
         this.publish();
     },
