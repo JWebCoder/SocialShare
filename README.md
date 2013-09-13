@@ -112,6 +112,9 @@ The attributes are:
 * data-url - the link to be shared.
 * data-title - the title to share.
 * data-summary - the summary of the share.
+* data-share-type - the type of share
+	* photo - to share a photo
+	* normal - to share a link
 
 ### For delicious:
 
