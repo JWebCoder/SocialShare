@@ -1,7 +1,7 @@
 //	Author: João Moura
 //	Author blog: http://JWebCoder.wordpress.com
 //
-//	SocialShare v0.92
+//	SocialShare v0.93
 //
 //	JavaScript plugin to create sharing buttons
 //
