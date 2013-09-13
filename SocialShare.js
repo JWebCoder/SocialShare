@@ -71,7 +71,7 @@ SocialShare.prototype = {
 	images: null,
 	
     facebook: function(url, image, title, summary) {
-        this.link = "https://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + url + "&p[images][0]=" + image + "&p[title]=" + title + "&p[summary]=" + summary;
+        this.link = "https://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + url + "&p[images][0]=" + encodeURIComponent(image) + "&p[title]=" + title + "&p[summary]=" + summary;
         this.type = "facebook";
         this.publish();
     },
@@ -97,13 +97,17 @@ SocialShare.prototype = {
     },
 
     pinterest: function(url, image, summary) {
-        this.link = "http://pinterest.com/pin/create/button/?url=" + url + "&media=" + image + "&description=" + summary;
+        this.link = "http://pinterest.com/pin/create/button/?url=" + url + "&media=" + encodeURIComponent(image) + "&description=" + summary;
         this.type = "pinterest";
         this.publish();
     },
-    tumblr: function(url, title, summary) {
-        this.link = "http://www.tumblr.com/share/link?url=" + encodeURIComponent(url) + "&name=" + title + "&description=" + summary;
-        this.type = "tumblr";
+    tumblr: function(url, title, summary, sharetype, image) {
+		if(sharetype == "photo"){
+			this.link = "http://www.tumblr.com/share/photo?source=" + encodeURIComponent(image) + "&caption=" + summary + "&click_thru=" + encodeURIComponent(url);
+		}else{
+			this.link = "http://www.tumblr.com/share/link?url=" + encodeURIComponent(url) + "&name=" + title + "&description=" + summary;
+        }
+		this.type = "tumblr";
         this.publish();
     },
     delicious: function(url, title, summary) {
@@ -166,9 +170,11 @@ SocialShare.prototype = {
             this.pinterest(url, image, summary);
         } else if (element.getAttribute("data-type") == "tumblr") {
             url = element.getAttribute("data-url");
+			sharetype = element.getAttribute("data-share-type");
+			image = element.getAttribute("data-image");
             title = element.getAttribute("data-title");
             summary = element.getAttribute("data-summary");
-            this.tumblr(url, title, summary);
+            this.tumblr(url, title, summary,sharetype,image);
         } else if (element.getAttribute("data-type") == "delicious") {
             url = element.getAttribute("data-url");
             title = element.getAttribute("data-title");
@@ -200,10 +206,14 @@ SocialShare.prototype = {
     publish: function() {
         if (this.link != "") {
             $params = "";
-            if (this.type != "googleplus") {
+			if (this.type == "tumblr"){
+				$params = "toolbar=0,status=0,width=800,height=500";
+			}
+            else if (this.type == "googleplus") {
+				$params = "toolbar=0,status=0,width=600,height=600";
+                
+            } else {
                 $params = "toolbar=0,status=0,width=626,height=436";
-            } else if (this.type == "googleplus") {
-                $params = "toolbar=0,status=0,width=600,height=600";
             }
             window.open(this.link.replace(/(<([^>]+)>)/ig, ""), 'sharer', $params);
             this.link = "";
