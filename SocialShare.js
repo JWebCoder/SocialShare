@@ -67,20 +67,29 @@ SocialShare.prototype = {
     imageClass: null,
     themeUrl: null,
     theme: "default",
-	invertTheme:null,
-	images: null,
-	
+    invertTheme: null,
+    images: null,
+
+    strip: function(html) {
+        var tmp = document.createElement("DIV");
+        tmp.innerHTML = html.replace("\\n", " ");
+        return tmp.textContent || tmp.innerText || "";
+    },
+
     facebook: function(url, image, title, summary) {
-        this.link = "https://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + url + "&p[images][0]=" + encodeURIComponent(image) + "&p[title]=" + title + "&p[summary]=" + summary;
+        summary = this.strip(summary);
+        this.link = "https://www.facebook.com/sharer/sharer.php?s=100&p[url]=" + url + "&p[images][0]=" + encodeURIComponent(image) + "&p[title]=" + encodeURIComponent(title) + "&p[summary]=" + encodeURIComponent(summary);
         this.type = "facebook";
         this.publish();
     },
     twitter: function(text, url) {
-        this.link = "http://twitter.com/share?text=" + text + "&url=" + url;
+        text = this.strip(text);
+        this.link = "http://twitter.com/share?text=" + encodeURIComponent(text) + "&url=" + url;
         this.type = "twitter";
         this.publish();
     },
     linkedin: function(url, title, summary) {
+        summary = this.strip(summary);
         this.link = "http://www.linkedin.com/shareArticle?mini=true&url=" + url + "&title=" + title + "&summary=" + summary;
         this.type = "linkedin";
         this.publish();
@@ -102,12 +111,12 @@ SocialShare.prototype = {
         this.publish();
     },
     tumblr: function(url, title, summary, sharetype, image) {
-		if(sharetype == "photo"){
-			this.link = "http://www.tumblr.com/share/photo?source=" + encodeURIComponent(image) + "&caption=" + summary + "&click_thru=" + encodeURIComponent(url);
-		}else{
-			this.link = "http://www.tumblr.com/share/link?url=" + encodeURIComponent(url) + "&name=" + title + "&description=" + summary;
+        if (sharetype == "photo") {
+            this.link = "http://www.tumblr.com/share/photo?source=" + encodeURIComponent(image) + "&caption=" + summary + "&click_thru=" + encodeURIComponent(url);
+        } else {
+            this.link = "http://www.tumblr.com/share/link?url=" + encodeURIComponent(url) + "&name=" + title + "&description=" + summary;
         }
-		this.type = "tumblr";
+        this.type = "tumblr";
         this.publish();
     },
     delicious: function(url, title, summary) {
@@ -170,11 +179,11 @@ SocialShare.prototype = {
             this.pinterest(url, image, summary);
         } else if (element.getAttribute("data-type") == "tumblr") {
             url = element.getAttribute("data-url");
-			sharetype = element.getAttribute("data-share-type");
-			image = element.getAttribute("data-image");
+            sharetype = element.getAttribute("data-share-type");
+            image = element.getAttribute("data-image");
             title = element.getAttribute("data-title");
             summary = element.getAttribute("data-summary");
-            this.tumblr(url, title, summary,sharetype,image);
+            this.tumblr(url, title, summary, sharetype, image);
         } else if (element.getAttribute("data-type") == "delicious") {
             url = element.getAttribute("data-url");
             title = element.getAttribute("data-title");
@@ -206,12 +215,12 @@ SocialShare.prototype = {
     publish: function() {
         if (this.link != "") {
             $params = "";
-			if (this.type == "tumblr"){
-				$params = "toolbar=0,status=0,width=800,height=500";
-			}
+            if (this.type == "tumblr") {
+                $params = "toolbar=0,status=0,width=800,height=500";
+            }
             else if (this.type == "googleplus") {
-				$params = "toolbar=0,status=0,width=600,height=600";
-                
+                $params = "toolbar=0,status=0,width=600,height=600";
+
             } else {
                 $params = "toolbar=0,status=0,width=626,height=436";
             }
@@ -236,31 +245,31 @@ SocialShare.prototype = {
             }
         } else {
             var parent = this;
-			var path = this.themeUrl + "/" + this.theme + "/";
-			this.images = new Array();
+            var path = this.themeUrl + "/" + this.theme + "/";
+            this.images = new Array();
             for (i in elems) {
                 if ((elems[i].className + "").indexOf(this.imageClass) > -1) {
-					if(this.invertTheme != null){
-						this.images.push(new Image());
-						this.images[this.images.length - 1].src = path + elems[i].getAttribute("data-type") + ".png";
-						elems[i].getElementsByTagName('img')[0].src = path + elems[i].getAttribute("data-type") + "over.png";
-						elems[i].onmouseover = function() {
-							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + ".png";
-						};
-						elems[i].onmouseout = function() {
-							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + "over.png";
-						};
-					}else{
-						this.images.push(new Image());
-						this.images[this.images.length - 1].src = path + elems[i].getAttribute("data-type") + "over.png";
-						elems[i].getElementsByTagName('img')[0].src = path + elems[i].getAttribute("data-type") + ".png";
-						elems[i].onmouseover = function() {
-							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + "over.png";
-						};
-						elems[i].onmouseout = function() {
-							this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + ".png";
-						};
-					}
+                    if (this.invertTheme != null) {
+                        this.images.push(new Image());
+                        this.images[this.images.length - 1].src = path + elems[i].getAttribute("data-type") + ".png";
+                        elems[i].getElementsByTagName('img')[0].src = path + elems[i].getAttribute("data-type") + "over.png";
+                        elems[i].onmouseover = function() {
+                            this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + ".png";
+                        };
+                        elems[i].onmouseout = function() {
+                            this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + "over.png";
+                        };
+                    } else {
+                        this.images.push(new Image());
+                        this.images[this.images.length - 1].src = path + elems[i].getAttribute("data-type") + "over.png";
+                        elems[i].getElementsByTagName('img')[0].src = path + elems[i].getAttribute("data-type") + ".png";
+                        elems[i].onmouseover = function() {
+                            this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + "over.png";
+                        };
+                        elems[i].onmouseout = function() {
+                            this.getElementsByTagName('img')[0].src = path + this.getAttribute("data-type") + ".png";
+                        };
+                    }
                 }
             }
         }
