@@ -20,7 +20,6 @@
 //  StumbleUpon
 //  Newsvine
 
-
 var SocialShare = function(options) {
 	if(options){
 		if (options.imageManager) {
